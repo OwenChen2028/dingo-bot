@@ -1,5 +1,4 @@
 const { SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
-const { Client } = require('pg');
 const dbClient = require('../../dbClient');
 
 module.exports = {
@@ -16,7 +15,6 @@ module.exports = {
                 .setRequired(true))
         .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers),
 
-
 	async execute(interaction) {
         if (!interaction.guild) {
             return await interaction.reply('This command can only be used in a server.');
@@ -27,13 +25,21 @@ module.exports = {
         const term = interaction.options.getString('term');
         const definition = interaction.options.getString('definition');
         const createdBy = interaction.user.id;
-
-        const addTermQuery = `
-            INSERT INTO dingo_${interaction.guild.id} (term, definition, created_by)
-            VALUES ($1, $2, $3);
-        `;
+        const tableName = `dingo_${interaction.guild.id}`;
 
         try {
+            const checkTableQuery = `SELECT to_regclass('${tableName}')`;
+            const tableCheck = await dbClient.query(checkTableQuery);
+
+            if (!tableCheck.rows[0].to_regclass) {
+                return await interaction.editReply('Please run `/init` first to initialize the table.');
+            }
+
+            const addTermQuery = `
+                INSERT INTO ${tableName} (term, definition, created_by)
+                VALUES ($1, $2, $3);
+            `;
+
             await dbClient.query(addTermQuery, [term, definition, createdBy]);
             await interaction.editReply(`Term added successfully with its definition.`);
         }

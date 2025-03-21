@@ -29,15 +29,15 @@ module.exports = {
 		
         try {
             await dbClient.query(createTableQuery);
-            await interaction.reply(`Table created successfully for server: ${interaction.guild.name}`);
+            await interaction.editReply(`Table created successfully for server: ${interaction.guild.name}`);
         }
         catch (error) {
             if (error.code === '42P07') { // 42P07 is the SQL error code for "table already exists"
-                await interaction.reply('A table for this server already exists.');
+                await interaction.editReply('A table for this server already exists.');
             }
             else {
                 console.error('Error creating table:', error);
-                await interaction.reply('An error occurred while creating the table.');
+                await interaction.editReply('An error occurred while creating the table.');
             }
         }
 	},
