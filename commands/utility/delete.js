@@ -3,15 +3,11 @@ const dbClient = require('../../dbClient');
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('update')
-		.setDescription('Updates the definition of a term in the current server\'s table.')
+		.setName('delete')
+		.setDescription('Deletes a term from the current server\'s table.')
 		.addStringOption(option =>
 			option.setName('term')
-				.setDescription('The term to update.')
-				.setRequired(true))
-		.addStringOption(option =>
-			option.setName('definition')
-				.setDescription('The new definition of the term.')
+				.setDescription('The term to delete.')
 				.setRequired(true))
 		.setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
 
@@ -23,8 +19,6 @@ module.exports = {
 		await interaction.deferReply();
 
 		const term = interaction.options.getString('term');
-		const definition = interaction.options.getString('definition');
-		const modifiedBy = interaction.user.id;
 		const tableName = `dingo_${interaction.guild.id}`;
 
 		try {
@@ -44,21 +38,20 @@ module.exports = {
 			const result = await dbClient.query(findTermQuery, [term]);
 
 			if (result.rows.length === 0) {
-				return await interaction.editReply(`Term **${term}** not found. Use /create to add it.`);
+				return await interaction.editReply(`Term **${term}** not found.`);
 			}
 
-			const updateTermQuery = `
-				UPDATE ${tableName}
-				SET definition = $1, modified_by = $2, modified_at = CURRENT_TIMESTAMP, change_count = change_count + 1
-				WHERE term = $3;
+			const deleteTermQuery = `
+				DELETE FROM ${tableName}
+				WHERE term = $1;
 			`;
 
-			await dbClient.query(updateTermQuery, [definition, modifiedBy, term]);
-			await interaction.editReply(`Definition for **${term}** updated successfully.`);
+			await dbClient.query(deleteTermQuery, [term]);
+			await interaction.editReply(`Term **${term}** deleted successfully.`);
 		}
-        catch (error) {
-			console.error('Error updating term:', error);
-			await interaction.editReply('An error occurred while updating the term.');
+		catch (error) {
+			console.error('Error deleting term:', error);
+			await interaction.editReply('An error occurred while deleting the term.');
 		}
 	},
 };

@@ -32,7 +32,7 @@ module.exports = {
             const tableCheck = await dbClient.query(checkTableQuery);
 
             if (!tableCheck.rows[0].to_regclass) {
-                return await interaction.editReply('Please run `/init` first to initialize the table.');
+                return await interaction.editReply('Table does not exist. Please run `/init` first to initialize the table.');
             }
 
             const addTermQuery = `
