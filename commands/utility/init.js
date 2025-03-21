@@ -1,16 +1,6 @@
 const { SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
 const { Client } = require('pg');
-const config = require('../../config.json');
-
-const dbClient = new Client({
-    user: config.dbUser,
-    host: config.dbHost,
-    database: config.dbName,
-    password: config.dbPassword,
-    port: config.dbPort,
-});
-
-dbClient.connect().then(() => console.log('Connected to database')).catch(err => console.error('Database connection error:', err));
+const dbClient = require('../../dbClient');
 
 module.exports = {
 	data: new SlashCommandBuilder()
