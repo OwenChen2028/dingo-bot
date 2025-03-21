@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require('discord.js');
+const { SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
 const { Client } = require('pg');
 const config = require('../../config.json');
 
@@ -15,7 +15,8 @@ dbClient.connect().then(() => console.log('Connected to database')).catch(err =>
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('init')
-		.setDescription('Initializes a new table for the current server..'),
+		.setDescription('Initializes a new table for the current server.')
+        .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers),
 
 	async execute(interaction) {
         if (!interaction.guild) {
