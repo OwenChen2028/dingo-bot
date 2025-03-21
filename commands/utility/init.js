@@ -6,7 +6,7 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('init')
 		.setDescription('Initializes a new table for the current server.')
-        .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers),
+        .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
 
 	async execute(interaction) {
         if (!interaction.guild) {

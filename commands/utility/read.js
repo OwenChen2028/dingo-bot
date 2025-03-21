@@ -9,7 +9,7 @@ module.exports = {
             option.setName('term')
                 .setDescription('The term to find.')
                 .setRequired(true))
-        .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers),
+        .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
 
 	async execute(interaction) {
         if (!interaction.guild) {
@@ -26,16 +26,16 @@ module.exports = {
             const tableCheck = await dbClient.query(checkTableQuery);
 
             if (!tableCheck.rows[0].to_regclass) {
-                return await interaction.editReply('Please run `/init` first to initialize the table.');
+                return await interaction.editReply('Table does not exist. Please run `/init` first to initialize the table.');
             }
 
-            const addTermQuery = `
+            const findTermQuery = `
                 SELECT *
                 FROM ${tableName}
                 WHERE term = $1;
             `;
 
-            const result = await dbClient.query(addTermQuery, [term]);
+            const result = await dbClient.query(findTermQuery, [term]);
 
             if (result.rows.length === 0) {
                 return await interaction.editReply(`No definition found for **${term}**.`);

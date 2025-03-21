@@ -13,7 +13,7 @@ module.exports = {
             option.setName('definition')
                 .setDescription('The definition of the term.')
                 .setRequired(true))
-        .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers),
+        .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
 
 	async execute(interaction) {
         if (!interaction.guild) {
@@ -41,7 +41,7 @@ module.exports = {
             `;
 
             await dbClient.query(addTermQuery, [term, definition, createdBy]);
-            await interaction.editReply(`Term added successfully with its definition.`);
+            await interaction.editReply(`Term **${term}** added successfully.`);
         }
         catch (error) {
             console.error('Error adding term:', error);
