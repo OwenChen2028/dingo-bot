@@ -4,7 +4,7 @@ const dbClient = require('../../dbClient');
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('read')
-		.setDescription('Displays the definition of a term from the current server\'s table.')
+		.setDescription('Finds a term from the current server\'s table and displays its information.')
         .addStringOption(option =>
             option.setName('term')
                 .setDescription('The term to find.')
@@ -45,7 +45,8 @@ module.exports = {
             const createdDate = new Date(created_at).toLocaleString();
             const modifiedDate = modified_at ? new Date(modified_at).toLocaleString() : 'Never';
 
-            const response = `**Term:** ${term}\n**Definition:** ${definition}\n` +
+            const response = 
+                `**Term:** ${term}\n**Definition:** ${definition}\n` +
                 `**Created By:** ${created_by}\n**Created At:** ${createdDate}\n` +
                 `**Modified By:** ${modified_by || 'N/A'}\n` +
                 `**Modified At:** ${modifiedDate}\n` +
@@ -54,8 +55,8 @@ module.exports = {
             await interaction.editReply(response);
         }
         catch (error) {
-            console.error('Error retrieving term:', error);
-            await interaction.editReply('An error occurred while retrieving the term.');
+            console.error('Error finding term:', error);
+            await interaction.editReply('An error occurred while finding the term.');
         }
 	},
 };
