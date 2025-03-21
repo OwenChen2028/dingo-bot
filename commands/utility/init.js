@@ -20,7 +20,9 @@ module.exports = {
 	async execute(interaction) {
         if (!interaction.guild) {
             return await interaction.reply('This command can only be used in a server.');
-          }
+        }
+
+        await interaction.deferReply();
 
         const createTableQuery = `
             CREATE TABLE dingo_${interaction.guild.id} (
