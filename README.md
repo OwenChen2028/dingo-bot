@@ -1,4 +1,4 @@
-# Get Started with DingoBot 🐾
+# Getting Started with DingoBot 🐾
 
 DingoBot, short for **Discord Lingo Bot**, is a simple tool for managing and sharing definitions in your Discord server. Whether you're part of a gaming guild, a study group, or just a community with inside jokes, DingoBot makes it easy to keep track of your server’s custom terms.
 
@@ -6,13 +6,14 @@ DingoBot, short for **Discord Lingo Bot**, is a simple tool for managing and sha
 
 Here’s what you can do with DingoBot:
 
-- `/init` - Set up a table for your server.
-- `/create <term> <definition>` - Add a new term and its definition.
-- `/read <term>` - Look up a specific term.
-- `/readall` - See a list of all terms and their definitions.
-- `/update <term> <definition>` - Change the definition of an existing term.
-- `/delete <term>` - Remove a term from the table.
-- `/deleteall` - Delete all terms from the server’s table.
+- `/init` - Initializes a new table for the current server.
+- `/create <term> <definition>` - Adds a term and its definition to the current server\'s table.
+- `/read <term>` - Finds a term from the current server\'s table and displays its information.
+- `/readall` - Displays all rows in the current server\'s table.
+- `/update <term> <definition>` - Updates the definition of a term in the current server\'s table.
+- `/delete <term>` - Deletes a term from the current server\'s table.
+- `/deleteall` - Deletes all rows from the current server\'s table.
+- `/lookup <term> <message>` Searches for terms with similar meaning or spelling and explains them in the context of the given message.
 
 ### Examples
 - Define gaming terms like "gg" or "strat" for your guild.
