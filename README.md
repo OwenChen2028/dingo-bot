@@ -8,12 +8,12 @@ Here’s what you can do with DingoBot:
 
 - `/init` - Initializes a new table for the current server.
 - `/create <term> <definition>` - Adds a term and its definition to the current server\'s table.
-- `/read <term>` - Finds a term from the current server\'s table and displays its information.
+- `/read <term>` - Finds a term in the current server\'s table and displays its information.
 - `/readall` - Displays all rows in the current server\'s table.
 - `/update <term> <definition>` - Updates the definition of a term in the current server\'s table.
 - `/delete <term>` - Deletes a term from the current server\'s table.
 - `/deleteall` - Deletes all rows from the current server\'s table.
-- `/lookup <term> <message>` Searches for terms with similar meaning or spelling and explains them in the context of the given message.
+- `/lookup <term> <message>` - Searches for the specified term within the current server’s table and provides an explanation of it in the context of the given message. Unlike the read command, the specified term does not have to match the term in the database exactly. In the current implementation, this is the only command available to non-admin users.
 
 ### Examples
 - Define gaming terms like "gg" or "strat" for your guild.
