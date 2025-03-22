@@ -1,5 +1,7 @@
 # Getting Started with DingoBot 🐾
 
+DingoBot © 2025 by Owen Chen is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1)
+
 DingoBot, short for **Discord Lingo Bot**, is a simple tool for managing and sharing definitions in your Discord server. Whether you're part of a gaming guild, a study group, or just a community with inside jokes, DingoBot makes it easy to keep track of your server’s custom terms.
 
 ## How to Use DingoBot
