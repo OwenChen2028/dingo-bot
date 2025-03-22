@@ -19,6 +19,8 @@ Here’s what you can do with DingoBot:
 - Define gaming terms like "gg" or "strat" for your guild.
 - Create a glossary of server memes or inside jokes.
 
+---
+
 # DingoBot Deployment Guide
 
 Here’s how to get DingoBot up and running using Node.js.
@@ -95,5 +97,3 @@ You’ll see a confirmation when the bot is running.
 
 - Use `pm2` or `screen` to keep the bot running in the background.
 - Regularly check for updates and keep backups of your database.
-
-Enjoy using DingoBot!
