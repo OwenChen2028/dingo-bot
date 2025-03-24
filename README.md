@@ -1,4 +1,4 @@
-# Getting Started with DingoBot 🐾
+# DingoBot
 
 DingoBot © 2025 by Owen Chen is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1)
 
@@ -60,7 +60,8 @@ Create a `config.json` file in the root directory with the following:
   "dbHost": "YOUR_DATABASE_HOST",
   "dbName": "YOUR_DATABASE_NAME",
   "dbPassword": "YOUR_DATABASE_PASSWORD",
-  "dbPort": "YOUR_DATABASE_PORT"
+  "dbPort": "YOUR_DATABASE_PORT",
+  "openAIKey": "YOUR_OPENAI_API_KEY"
 }
 ```
 
@@ -71,6 +72,7 @@ Create a `config.json` file in the root directory with the following:
 - **dbName**: Name of your database
 - **dbPassword**: Database password
 - **dbPort**: Database port (default is `5432`)
+- **openAIKey**: Your OpenAI API key
 
 ## Step 4: Deploy Commands
 

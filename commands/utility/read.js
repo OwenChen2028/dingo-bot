@@ -4,7 +4,7 @@ const dbClient = require('../../dbClient');
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('read')
-		.setDescription('Finds a term from the current server\'s table and displays its information.')
+		.setDescription('Finds a term in the current server\'s table and displays its information.')
         .addStringOption(option =>
             option.setName('term')
                 .setDescription('The term to find.')
