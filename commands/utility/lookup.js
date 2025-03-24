@@ -34,7 +34,7 @@ async function getLLMResponse(prompt) {
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('lookup')
-		.setDescription('Searches for a term and explains its usage in the given context.')
+		.setDescription('Searches for a term whose definition fits the provided context.')
         .addStringOption(option =>
             option.setName('term')
                 .setDescription('The term to find.')

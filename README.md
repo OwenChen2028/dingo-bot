@@ -15,7 +15,9 @@ Here’s what you can do with DingoBot:
 - `/update <term> <definition>` - Updates the definition of a term in the current server\'s table.
 - `/delete <term>` - Deletes a term from the current server\'s table.
 - `/deleteall` - Deletes all rows from the current server\'s table.
-- `/lookup <term> <context>` - Searches for a term and explains its usage in the given context. Unlike the read command, lookup does not require an exact match for the term to exist in the current server's table. In the current implementation, lookup is the only command available to non-admin users.
+- `/lookup <term> <context>` - Searches for a term whose definition fits the provided context. 
+
+Note: In the current implementation, `/lookup` is the only command available to non-admin users. It serves as the sole method through which users can access your server's table. Unlike the `/read` command, it doesn't require an exact match for the specified term to exist in the current server's table.
 
 ### Examples
 - Define gaming terms like "gg" or "strat" for your guild.
