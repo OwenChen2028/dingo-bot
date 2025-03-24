@@ -23,7 +23,7 @@ Here’s what you can do with DingoBot:
 
 ---
 
-# DingoBot Deployment Guide
+# Deployment Guide
 
 Here’s how to get DingoBot up and running using Node.js.
 
