@@ -5,7 +5,7 @@ const dbClient = require('../../dbClient');
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('init')
-		.setDescription('Initializes a new table for the current server.')
+		.setDescription('Initializes a table for the current server in the Dingo database.')
         .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
 
 	async execute(interaction) {

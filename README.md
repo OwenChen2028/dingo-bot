@@ -8,14 +8,14 @@ DingoBot, short for **Discord Lingo Bot**, is a simple tool for managing and sha
 
 Here’s what you can do with DingoBot:
 
-- `/init` - Initializes a new table for the current server.
+- `/init` - Initializes a table for the current server in the Dingo database.
 - `/create <term> <definition>` - Adds a term and its definition to the current server\'s table.
 - `/read <term>` - Finds a term in the current server\'s table and displays its information.
 - `/readall` - Displays all rows in the current server\'s table.
 - `/update <term> <definition>` - Updates the definition of a term in the current server\'s table.
 - `/delete <term>` - Deletes a term from the current server\'s table.
 - `/deleteall` - Deletes all rows from the current server\'s table.
-- `/lookup <term> <message>` - Searches for the specified term within the current server’s table and provides an explanation of it in the context of the given message. Unlike the read command, the specified term does not have to match the term in the database exactly. In the current implementation, this is the only command available to non-admin users.
+- `/lookup <term> <context>` - Searches for a term and explains its usage in the given context. Unlike the read command, lookup does not require an exact match for the term to exist in the current server's table. In the current implementation, lookup is the only command available to non-admin users.
 
 ### Examples
 - Define gaming terms like "gg" or "strat" for your guild.
