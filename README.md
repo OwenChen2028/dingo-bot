@@ -23,13 +23,7 @@ Note: In the current implementation, `/lookup` is the only command available to 
 - Define gaming terms like "gg" or "strat" for your guild.
 - Create a glossary of server memes or inside jokes.
 
----
-
-# Deployment Guide
-
-Here’s how to get DingoBot up and running using Node.js.
-
-## Prerequisites
+## Deployment Prerequisites
 
 Make sure you have:
 
@@ -48,6 +42,25 @@ cd <repository-name>
 
 ```bash
 npm install
+```
+
+Note: If you encounter an error related to a missing module, such as:
+
+```
+Error: The specified module could not be found.
+...\node_modules\@tensorflow\tfjs-node\lib\napi-v8\tfjs_binding.node
+```
+
+You may need to move a file manually. Try moving `tensorflow.dll` from:
+
+```
+...\node_modules\@tensorflow\tfjs-node\deps\lib\tensorflow.dll
+```
+
+to:
+
+```
+...\node_modules\@tensorflow\tfjs-node\lib\napi-v8\
 ```
 
 ## Step 3: Configure the Bot
